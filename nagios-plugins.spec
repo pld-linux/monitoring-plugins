@@ -9,38 +9,35 @@
 %bcond_without	ldap		# build without ldap
 
 %include	/usr/lib/rpm/macros.perl
-Summary:	Host/service/network monitoring program plugins for Nagios
+Summary:	Network Monitoring Plugins for Nagios and compatible
 Summary(pl.UTF-8):	Wtyczki do monitorowania hostów/usług/sieci dla Nagiosa
 Name:		nagios-plugins
-Version:	2.0.3
-Release:	3
-License:	GPL v3
+Version:	2.1.1
+Release:	1
+License:	GPL v3+
 Group:		Networking
-Source0:	http://www.nagios-plugins.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	6755765bab88b506181268ef7982595e
+Source0:	https://www.monitoring-plugins.org/download/monitoring-plugins-%{version}.tar.gz
+# Source0-md5:	8e564c03e3fc32f452956892b19abb4d
 # https://git.pld-linux.org/projects/nagios-config
 Source1:	%{name}-config-20150412.tar.xz
 # Source1-md5:	2f0f29735345c158d11c2009be3e1478
 Source2:	nagios-utils.php
 #Patch:		%{name}-shared.patch # needs finishing
 Patch0:		%{name}-tainted.patch
-Patch3:		%{name}-subst.patch
 Patch4:		%{name}-noroot.patch
 Patch5:		%{name}-check_ping-socket-filter-warning.patch
 Patch7:		%{name}-pgsql.patch
 Patch9:		%{name}-check_log_paths.patch
 Patch13:	%{name}-check_radius_segfault.patch
-Patch20:	%{name}-cosmetic.patch
 Patch21:	%{name}-check_hpjd-no-paper-out.patch
 Patch23:	%{name}-check_disk_smb-zero-cap.patch
 Patch24:	%{name}-paths.patch
 Patch27:	%{name}-ping.patch
-Patch28:	mawk-workaround.patch
 URL:		http://www.nagiosplugins.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	file
-BuildRequires:	gettext-devel >= 0.14.3
+BuildRequires:	gettext-tools >= 0.15
 BuildRequires:	libdbi-devel
 BuildRequires:	libtap-devel
 BuildRequires:	libtool
@@ -505,20 +502,17 @@ your own risk.
 Wtyczki przekazane do projektu Nagios. Część z nich działa, część nie.
 
 %prep
-%setup -q -a1
+%setup -q -n monitoring-plugins-%{version} -a1
 mv nagios-plugins-config-*/* .
 %patch0 -p1
-%patch3 -p1
 %patch4 -p1
 %patch5 -p1
 %patch7 -p1
 %patch13 -p1
-%patch20 -p1
 %patch21 -p1
 %patch23 -p1
 %patch24 -p1
 %patch27 -p1
-%patch28 -p1
 
 # remove libtool m4 macro copies, breaks when system libtool is older
 %{__rm} gl/m4/libtool.m4 gl/m4/lt*.m4
@@ -586,7 +580,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm} $RPM_BUILD_ROOT%{_pluginarchdir}/check_nwstat
 
 # for nagios-plugin-check_mysql_perf (at least)
-cp -p lib/libnagiosplug.a $RPM_BUILD_ROOT%{_libdir}
+cp -p lib/libmonitoringplug.a $RPM_BUILD_ROOT%{_libdir}
 cp -p gl/libgnu.a $RPM_BUILD_ROOT%{_libdir}
 cp -p plugins/utils.o $RPM_BUILD_ROOT%{_libdir}
 cp -p plugins/netutils.o $RPM_BUILD_ROOT%{_libdir}
@@ -599,7 +593,7 @@ cp -p lib/*.h $RPM_BUILD_ROOT%{_includedir}/nagiosplug/lib
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
 cp -p commands/*.cfg $RPM_BUILD_ROOT%{_sysconfdir}
 
-%find_lang %{name}
+%find_lang monitoring-plugins -o %{name}.lang
 
 %if "%{_pluginarchdir}" != "%{_pluginlibdir}"
 # move arch independant files to _pluginlibdir
@@ -691,7 +685,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_pluginarchdir}/check_ssmtp
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_udp.cfg
 %attr(755,root,root) %{_pluginarchdir}/check_udp
-%attr(755,root,root) %{_pluginarchdir}/check_uptime
+#%attr(755,root,root) %{_pluginarchdir}/check_uptime
 
 # these plugins need suid bit to operate
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_dhcp.cfg
@@ -704,7 +698,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files libs
 %defattr(644,root,root,755)
-#%attr(755,root,root) %{_libdir}/libnagiosplug.so.0.0.0
+#%attr(755,root,root) %{_libdir}/libmonitoringplug.so.*.*.*
 %attr(755,root,root) %{_pluginarchdir}/negate
 %attr(755,root,root) %{_pluginarchdir}/urlize
 
@@ -715,7 +709,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_libdir}/libgnu.a
-%{_libdir}/libnagiosplug.a
+%{_libdir}/libmonitoringplug.a
 %{_libdir}/netutils.o
 %{_libdir}/utils.o
 %{_includedir}/nagiosplug

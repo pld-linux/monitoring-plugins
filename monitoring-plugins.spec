@@ -11,28 +11,28 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Network Monitoring Plugins for Nagios and compatible
 Summary(pl.UTF-8):	Wtyczki do monitorowania hostów/usług/sieci dla Nagiosa
-Name:		nagios-plugins
+Name:		monitoring-plugins
 Version:	2.1.1
 Release:	1
 License:	GPL v3+
 Group:		Networking
-Source0:	https://www.monitoring-plugins.org/download/monitoring-plugins-%{version}.tar.gz
+Source0:	https://www.monitoring-plugins.org/download/%{name}-%{version}.tar.gz
 # Source0-md5:	8e564c03e3fc32f452956892b19abb4d
 # https://git.pld-linux.org/projects/nagios-config
-Source1:	%{name}-config-20150412.tar.xz
+Source1:	nagios-plugins-config-20150412.tar.xz
 # Source1-md5:	2f0f29735345c158d11c2009be3e1478
 Source2:	nagios-utils.php
-#Patch:		%{name}-shared.patch # needs finishing
-Patch0:		%{name}-tainted.patch
-Patch4:		%{name}-noroot.patch
-Patch5:		%{name}-check_ping-socket-filter-warning.patch
-Patch7:		%{name}-pgsql.patch
-Patch9:		%{name}-check_log_paths.patch
-Patch13:	%{name}-check_radius_segfault.patch
-Patch21:	%{name}-check_hpjd-no-paper-out.patch
-Patch23:	%{name}-check_disk_smb-zero-cap.patch
-Patch24:	%{name}-paths.patch
-Patch27:	%{name}-ping.patch
+#Patch:		nagios-plugins-shared.patch # needs finishing
+Patch0:		nagios-plugins-tainted.patch
+Patch4:		nagios-plugins-noroot.patch
+Patch5:		nagios-plugins-check_ping-socket-filter-warning.patch
+Patch7:		nagios-plugins-pgsql.patch
+Patch9:		nagios-plugins-check_log_paths.patch
+Patch13:	nagios-plugins-check_radius_segfault.patch
+Patch21:	nagios-plugins-check_hpjd-no-paper-out.patch
+Patch23:	nagios-plugins-check_disk_smb-zero-cap.patch
+Patch24:	nagios-plugins-paths.patch
+Patch27:	nagios-plugins-ping.patch
 URL:		http://www.nagiosplugins.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -593,7 +593,7 @@ cp -p lib/*.h $RPM_BUILD_ROOT%{_includedir}/nagiosplug/lib
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
 cp -p commands/*.cfg $RPM_BUILD_ROOT%{_sysconfdir}
 
-%find_lang monitoring-plugins -o %{name}.lang
+%find_lang %{name}
 
 %if "%{_pluginarchdir}" != "%{_pluginlibdir}"
 # move arch independant files to _pluginlibdir

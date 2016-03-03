@@ -195,44 +195,46 @@ This plugin uses SSH to execute commands on a remote host.
 %description ssh -l pl.UTF-8
 Ta wtyczka używa SSH do wykonywania poleceń na zdalnym hoście.
 
-%package -n nagios-plugin-check_dig
+%package -n monitoring-plugin-check_dig
 Summary:	Nagios plugin to check DNS servers with dig
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania DNS-u przy użyciu programu dig
 Group:		Networking
 Requires:	bind-utils
 Requires:	nagios-common
 Provides:	nagios-plugins-dig = %{version}-%{release}
+Obsoletes:	nagios-plugin-check_dig
 Obsoletes:	nagios-plugins-dig
 
-%description -n nagios-plugin-check_dig
+%description -n monitoring-plugin-check_dig
 Test the DNS service on the specified host using dig.
 
-%description -n nagios-plugin-check_dig -l pl.UTF-8
+%description -n monitoring-plugin-check_dig -l pl.UTF-8
 Ta wtyczka sprawdza usługę DNS na podanym hoście przy użyciu programu
 dig.
 
-%package -n nagios-plugin-check_dns
+%package -n monitoring-plugin-check_dns
 Summary:	Nagios plugin to check DNS with nslookup
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania DNS-u przy użyciu nslookup
 Group:		Networking
 Requires:	bind-utils
 Requires:	nagios-common
 Provides:	nagios-plugins-dns = %{version}-%{release}
+Obsoletes:	nagios-plugin-check_dns
 Obsoletes:	nagios-plugins-dns
 
-%description -n nagios-plugin-check_dns
+%description -n monitoring-plugin-check_dns
 This plugin uses the nslookup program to obtain the IP address for the
 given host/domain query. A optional DNS server to use may be
 specified. If no DNS server is specified, the default server(s)
 specified in /etc/resolv.conf will be used.
 
-%description -n nagios-plugin-check_dns -l pl.UTF-8
+%description -n monitoring-plugin-check_dns -l pl.UTF-8
 Ta wtyczka używa programu nslookup do uzyskania adresu IP danego dla
 danego zapytania o host/domenę. Można opcjonalnie podać serwer DNS,
 który ma być użyty. Jeśli nie podano serwera DNS, używany jest
 domyślny serwer (lub serwery) podany w /etc/resolv.conf.
 
-%package -n nagios-plugin-check_file_age
+%package -n monitoring-plugin-check_file_age
 Summary:	Nagios plugin to check local file age and size
 Group:		Networking
 Requires:	nagios-common
@@ -242,36 +244,38 @@ Requires:	%{name}-libs = %{version}-%{release}
 BuildArch:	noarch
 %endif
 
-%description -n nagios-plugin-check_file_age
+%description -n monitoring-plugin-check_file_age
 Nagios plugin to check local file age and size.
 
-%package -n nagios-plugin-check_fping
+%package -n monitoring-plugin-check_fping
 Summary:	Nagios plugin to check host up state with fping
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania działania hosta przy użyciu programu fping
 Group:		Networking
 Requires:	fping
 Requires:	nagios-common
 Provides:	nagios-plugins-fping = %{version}-%{release}
+Obsoletes:	nagios-plugin-check_fping
 Obsoletes:	nagios-plugins-fping
 
-%description -n nagios-plugin-check_fping
+%description -n monitoring-plugin-check_fping
 This plugin will use the /bin/fping command to ping the specified host
 for a fast check if the host is alive.
 
-%description -n nagios-plugin-check_fping -l pl.UTF-8
+%description -n monitoring-plugin-check_fping -l pl.UTF-8
 Ta wtyczka używa polecenia /bin/fping do szybkiego sprawdzenia, czy
 dany host działa.
 
-%package -n nagios-plugin-check_game
+%package -n monitoring-plugin-check_game
 Summary:	Nagios plugin to check status of Internet game servers
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania stanu serwerów gier internetowych
 Group:		Networking
 Requires:	nagios-common
 Requires:	qstat
 Provides:	nagios-plugins-qstat = %{version}-%{release}
+Obsoletes:	nagios-plugin-check_game
 Obsoletes:	nagios-plugins-qstat
 
-%description -n nagios-plugin-check_game
+%description -n monitoring-plugin-check_game
 This plugin uses the 'qstat' command, the popular game server status
 query tool.
 
@@ -283,7 +287,7 @@ servers running a game, the server name, map name, current number of
 players, and response time are displayed. Server rules and player
 information may also be displayed.
 
-%description -n nagios-plugin-check_game -l pl.UTF-8
+%description -n monitoring-plugin-check_game -l pl.UTF-8
 Ta wtyczka używa polecenia 'qstat' - popularnego narzędzia do zapytań
 o stan serwerów gier.
 
@@ -295,37 +299,39 @@ Dla serwerów z grami wyświetlanea są: nazwa serwera, nazwa mapy,
 aktualna liczba graczy i czas odpowiedzi. Mogą być dodatkowo
 wyświetlone reguły serwera i informacje o graczach.
 
-%package -n nagios-plugin-check_ldap
+%package -n monitoring-plugin-check_ldap
 Summary:	Nagios plugin to check LDAP servers
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania serwerów LDAP
 Group:		Networking
 Requires:	nagios-common
 Suggests:	openldap
 Provides:	nagios-plugins-ldap = %{version}-%{release}
+Obsoletes:	nagios-plugin-check_ldap
 Obsoletes:	nagios-plugins-ldap
 
-%description -n nagios-plugin-check_ldap
+%description -n monitoring-plugin-check_ldap
 Nagios plugin to check LDAP servers.
 
-%description -n nagios-plugin-check_ldap -l pl.UTF-8
+%description -n monitoring-plugin-check_ldap -l pl.UTF-8
 Wtyczka Nagiosa do sprawdzania serwerów LDAP.
 
-%package -n nagios-plugin-check_load
+%package -n monitoring-plugin-check_load
 Summary:	Nagios plugin to check uptime using procps
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania uptime'u przy użyciu procps
 Group:		Networking
 Requires:	nagios-common
 Requires:	procps
 Provides:	nagios-plugins-procps = %{version}-%{release}
+Obsoletes:	nagios-plugin-check_load
 Obsoletes:	nagios-plugins-procps
 
-%description -n nagios-plugin-check_load
+%description -n monitoring-plugin-check_load
 Nagios plugin to check uptime using procps.
 
-%description -n nagios-plugin-check_load -l pl.UTF-8
+%description -n monitoring-plugin-check_load -l pl.UTF-8
 Wtyczka Nagiosa do sprawdzania uptime'u przy użyciu procps.
 
-%package -n nagios-plugin-check_mailq
+%package -n monitoring-plugin-check_mailq
 Summary:	Nagios plugin to check the number of messages in the local mail queue
 Group:		Networking
 Requires:	nagios-common
@@ -334,25 +340,27 @@ Requires:	%{name}-libs = %{version}-%{release}
 %if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
 %endif
+Obsoletes:	nagios-plugin-check_mailq
 
-%description -n nagios-plugin-check_mailq
+%description -n monitoring-plugin-check_mailq
 Checks the number of messages in the mail queue (supports multiple
 sendmail queues, qmail).
 
-%package -n nagios-plugin-check_nt
+%package -n monitoring-plugin-check_nt
 Summary:	Nagios plugin to check NT server with NSClient
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania serwera NT przy użyciu NSClienta
 Group:		Networking
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	nagios-common
+Obsoletes:	nagios-plugin-check_nt
 
-%description -n nagios-plugin-check_nt
+%description -n monitoring-plugin-check_nt
 Nagios plugin to check NT server with NSClient.
 
-%description -n nagios-plugin-check_nt -l pl.UTF-8
+%description -n monitoring-plugin-check_nt -l pl.UTF-8
 Wtyczka Nagiosa do sprawdzania serwera NT przy użyciu NSClienta.
 
-%package -n nagios-plugin-check_ntp
+%package -n monitoring-plugin-check_ntp
 Summary:	Nagios plugin to check time using NTP protocol
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania czasu przy użyciu protokołu NTP
 Group:		Networking
@@ -361,73 +369,77 @@ Requires:	nagios-common
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	ntp-client
 Provides:	nagios-plugins-ntp = %{version}-%{release}
+Obsoletes:	nagios-plugin-check_ntp
 Obsoletes:	nagios-plugins-ntp
 
-%description -n nagios-plugin-check_ntp
+%description -n monitoring-plugin-check_ntp
 Checks the local timestamp offset versus <host> with ntpdate. Checks
 the jitter/dispersion of clock signal between <host> and its sys.peer
 with ntpq.
 
-%description -n nagios-plugin-check_ntp -l pl.UTF-8
+%description -n monitoring-plugin-check_ntp -l pl.UTF-8
 Ta wtyczka sprawdza przesunięcie lokalnego czasu względem danego hosta
 przy użyciu ntpdate. Sprawdza wahania/dyspersję sygnału zegara
 pomiędzy hostem a jego sys.peer przy użyciu ntpq.
 
-%package -n nagios-plugin-check_pgsql
+%package -n monitoring-plugin-check_pgsql
 Summary:	Nagios plugin to test a PostgreSQL DBMS
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania systemu baz danych PostgreSQL
 Group:		Networking
 Requires:	nagios-common
 Provides:	nagios-plugins-pgsql = %{version}-%{release}
+Obsoletes:	nagios-plugin-check_pgsql
 Obsoletes:	nagios-plugins-pgsql
 
-%description -n nagios-plugin-check_pgsql
+%description -n monitoring-plugin-check_pgsql
 This plugin tests a PostgreSQL DBMS to determine whether it is active
 and accepting queries. In its current operation, it simply connects to
 the specified database, and then disconnects. If no database is
 specified, it connects to the template1 database, which is present in
 every functioning PostgreSQL DBMS.
 
-%description -n nagios-plugin-check_pgsql -l pl.UTF-8
+%description -n monitoring-plugin-check_pgsql -l pl.UTF-8
 Ta wtyczka sprawdza serwer baz danych PostgreSQL, aby określić, czy
 jest aktywny i przyjmuje zapytania. Aktualnie po prostu łączy się do
 określonej bazy danych i rozłącza. Jeśli nie podano bazy danych, łączy
 się do bazy danych template1, obecnej w każdym działającym systemie
 PostgreSQL.
 
-%package -n nagios-plugin-check_ping
+%package -n monitoring-plugin-check_ping
 Summary:	Nagios plugin to check host up state with ping
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania działania hosta przy użyciu programu ping
 Group:		Networking
 Requires:	iputils-ping >= 1:s20070202-1
 Requires:	nagios-common
+Obsoletes:	nagios-plugin-check_ping
 
-%description -n nagios-plugin-check_ping
+%description -n monitoring-plugin-check_ping
 This plugin will use the /bin/ping command to ping the specified host
 if the host is alive.
 
-%description -n nagios-plugin-check_ping -l pl.UTF-8
+%description -n monitoring-plugin-check_ping -l pl.UTF-8
 Ta wtyczka używa polecenia /bin/ping do sprawdzenia, czy dany host
 działa.
 
-%package -n nagios-plugin-check_radius
+%package -n monitoring-plugin-check_radius
 Summary:	Nagios plugin to test a radius server to see if it is accepting connections
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania serwera radius pod kątem przyjmowania połączeń
 Group:		Networking
 Requires:	nagios-common
 Requires:	radiusclient
 Provides:	nagios-plugins-radius = %{version}-%{release}
+Obsoletes:	nagios-plugin-check_radius
 Obsoletes:	nagios-plugins-radius
 
-%description -n nagios-plugin-check_radius
+%description -n monitoring-plugin-check_radius
 This plugin tests a radius server to see if it is accepting
 connections.
 
-%description -n nagios-plugin-check_radius -l pl.UTF-8
+%description -n monitoring-plugin-check_radius -l pl.UTF-8
 Ta wtyczka sprawdza serwer usługi radius, aby zobaczyć, czy przyjmuje
 połączenia.
 
-%package -n nagios-plugin-check_sensors
+%package -n monitoring-plugin-check_sensors
 Summary:	Nagios plugin to check hardware status using the lm_sensors package
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania stanu sprzętu przy użyciu pakietu lm_sensors
 Group:		Networking
@@ -436,18 +448,19 @@ Requires:	nagios-common
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	lm_sensors
 Provides:	nagios-plugins-sensors = %{version}-%{release}
+Obsoletes:	nagios-plugin-check_sensors
 Obsoletes:	nagios-plugins-sensors
 %if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
 %endif
 
-%description -n nagios-plugin-check_sensors
+%description -n monitoring-plugin-check_sensors
 This plugin checks hardware status using the lm_sensors package.
 
-%description -n nagios-plugin-check_sensors -l pl.UTF-8
+%description -n monitoring-plugin-check_sensors -l pl.UTF-8
 Ta wtyczka sprawdza stan sprzętu przy użyciu pakietu lm_sensors.
 
-%package -n nagios-plugin-check_dbi
+%package -n monitoring-plugin-check_dbi
 Summary:	Nagios plugin to check database with libdbi
 Group:		Networking
 Requires:	nagios-common
@@ -457,8 +470,9 @@ Suggests:	libdbi-drivers-mysql
 Suggests:	libdbi-drivers-pgsql
 Suggests:	libdbi-drivers-sqlite
 Suggests:	libdbi-drivers-sqlite3
+Obsoletes:	nagios-plugin-check_dbi
 
-%description -n nagios-plugin-check_dbi
+%description -n monitoring-plugin-check_dbi
 Nagios plugin to check database with libdbi.
 
 # requisite not packaged in PLD
@@ -632,10 +646,10 @@ rm -rf $RPM_BUILD_ROOT
 %postun	libs	-p /sbin/ldconfig
 %endif
 
-%triggerin -n nagios-plugin-check_mailq -- nagios-nrpe
+%triggerin -n monitoring-plugin-check_mailq -- nagios-nrpe
 %nagios_nrpe -a check_mailq -f %{_sysconfdir}/check_mailq.cfg
 
-%triggerun -n nagios-plugin-check_mailq -- nagios-nrpe
+%triggerun -n monitoring-plugin-check_mailq -- nagios-nrpe
 %nagios_nrpe -d check_mailq -f %{_sysconfdir}/check_mailq.cfg
 
 %files -f %{name}.lang
@@ -758,75 +772,75 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{plugindir}/check_by_ssh
 
-%files -n nagios-plugin-check_dig
+%files -n monitoring-plugin-check_dig
 %defattr(644,root,root,755)
 %attr(755,root,root) %{plugindir}/check_dig
 
-%files -n nagios-plugin-check_dns
+%files -n monitoring-plugin-check_dns
 %defattr(644,root,root,755)
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_dns.cfg
 %attr(755,root,root) %{plugindir}/check_dns
 
-%files -n nagios-plugin-check_file_age
+%files -n monitoring-plugin-check_file_age
 %defattr(644,root,root,755)
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_file_age.cfg
 %attr(755,root,root) %{plugindir}/check_file_age
 
-%files -n nagios-plugin-check_fping
+%files -n monitoring-plugin-check_fping
 %defattr(644,root,root,755)
 %attr(2755,root,adm) %{plugindir}/check_fping
 
-%files -n nagios-plugin-check_game
+%files -n monitoring-plugin-check_game
 %defattr(644,root,root,755)
 %attr(755,root,root) %{plugindir}/check_game
 
 %if %{with ldap}
-%files -n nagios-plugin-check_ldap
+%files -n monitoring-plugin-check_ldap
 %defattr(644,root,root,755)
 %attr(755,root,root) %{plugindir}/check_ldap
 %attr(755,root,root) %{plugindir}/check_ldaps
 %endif
 
-%files -n nagios-plugin-check_load
+%files -n monitoring-plugin-check_load
 %defattr(644,root,root,755)
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_load.cfg
 %attr(755,root,root) %{plugindir}/check_load
 
-%files -n nagios-plugin-check_mailq
+%files -n monitoring-plugin-check_mailq
 %defattr(644,root,root,755)
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_mailq.cfg
 %attr(755,root,root) %{plugindir}/check_mailq
 %ghost %{nrpeddir}/check_mailq.cfg
 
-%files -n nagios-plugin-check_nt
+%files -n monitoring-plugin-check_nt
 %defattr(644,root,root,755)
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_nt.cfg
 %attr(755,root,root) %{plugindir}/check_nt
 
-%files -n nagios-plugin-check_ntp
+%files -n monitoring-plugin-check_ntp
 %defattr(644,root,root,755)
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_ntp.cfg
 %attr(755,root,root) %{plugindir}/check_ntp
 %attr(755,root,root) %{plugindir}/check_ntp_peer
 %attr(755,root,root) %{plugindir}/check_ntp_time
 
-%files -n nagios-plugin-check_pgsql
+%files -n monitoring-plugin-check_pgsql
 %defattr(644,root,root,755)
 %attr(755,root,root) %{plugindir}/check_pgsql
 
-%files -n nagios-plugin-check_ping
+%files -n monitoring-plugin-check_ping
 %defattr(644,root,root,755)
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_ping.cfg
 %attr(2755,root,adm) %{plugindir}/check_ping
 
-%files -n nagios-plugin-check_radius
+%files -n monitoring-plugin-check_radius
 %defattr(644,root,root,755)
 %attr(755,root,root) %{plugindir}/check_radius
 
-%files -n nagios-plugin-check_sensors
+%files -n monitoring-plugin-check_sensors
 %defattr(644,root,root,755)
 %attr(755,root,root) %{plugindir}/check_sensors
 
-%files -n nagios-plugin-check_dbi
+%files -n monitoring-plugin-check_dbi
 %defattr(644,root,root,755)
 %attr(755,root,root) %{plugindir}/check_dbi

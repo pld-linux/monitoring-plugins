@@ -58,6 +58,7 @@ BuildRequires:	rpm >= 4.4.9-56
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.654
 Requires:	nagios-common
+Obsoletes:	nagios-plugins
 Obsoletes:	netsaint-plugins
 Conflicts:	nagios < 3.1.2-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

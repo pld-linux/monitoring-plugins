@@ -1,3 +1,5 @@
+https://github.com/monitoring-plugins/monitoring-plugins/pull/1410
+
 --- nagios-plugins-2.0/plugins/check_hpjd.c~	2014-04-21 11:57:30.000000000 +0300
 +++ nagios-plugins-2.0/plugins/check_hpjd.c	2014-04-21 12:56:26.818058154 +0300
 @@ -41,7 +41,7 @@

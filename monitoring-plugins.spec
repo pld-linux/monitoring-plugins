@@ -13,7 +13,7 @@ Summary:	Network Monitoring Plugins for Nagios and compatible
 Summary(pl.UTF-8):	Wtyczki do monitorowania hostów/usług/sieci dla Nagiosa
 Name:		monitoring-plugins
 Version:	2.1.2
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Networking
 Source0:	https://www.monitoring-plugins.org/download/%{name}-%{version}.tar.gz
@@ -409,7 +409,7 @@ PostgreSQL.
 Summary:	Nagios plugin to check host up state with ping
 Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania działania hosta przy użyciu programu ping
 Group:		Networking
-Requires:	iputils-ping >= 1:s20070202-1
+Requires:	ping >= 1:s20070202-1
 Requires:	nagios-common
 Obsoletes:	nagios-plugin-check_ping
 

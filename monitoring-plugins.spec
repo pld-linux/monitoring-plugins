@@ -28,7 +28,6 @@ Patch4:		nagios-plugins-noroot.patch
 Patch5:		nagios-plugins-check_ping-socket-filter-warning.patch
 Patch7:		nagios-plugins-pgsql.patch
 Patch9:		nagios-plugins-check_log_paths.patch
-Patch13:	nagios-plugins-check_radius_segfault.patch
 Patch21:	nagios-plugins-check_hpjd-no-paper-out.patch
 Patch23:	nagios-plugins-check_disk_smb-zero-cap.patch
 Patch24:	nagios-plugins-paths.patch
@@ -537,7 +536,6 @@ mv nagios-plugins-config-*/* .
 %patch4 -p1
 %patch5 -p1
 %patch7 -p1
-%patch13 -p1
 %patch21 -p1
 %patch23 -p1
 %patch24 -p1

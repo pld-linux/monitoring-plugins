@@ -653,7 +653,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc ACKNOWLEDGEMENTS AUTHORS CODING ChangeLog
-%doc FAQ LEGAL NEWS README REQUIREMENTS SUPPORT THANKS
+%doc FAQ NEWS README REQUIREMENTS SUPPORT THANKS
 
 # plugins
 %attr(755,root,root) %{plugindir}/check_apt

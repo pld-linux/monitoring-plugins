@@ -12,12 +12,12 @@
 Summary:	Network Monitoring Plugins for Nagios and compatible
 Summary(pl.UTF-8):	Wtyczki do monitorowania hostów/usług/sieci dla Nagiosa
 Name:		monitoring-plugins
-Version:	2.1.2
-Release:	2
+Version:	2.2
+Release:	1
 License:	GPL v3+
 Group:		Networking
 Source0:	https://www.monitoring-plugins.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	4a210f7db012571ea58e214cef74f612
+# Source0-md5:	549e243ba1fb5c5b3be3a86961de40a7
 # https://git.pld-linux.org/projects/nagios-config
 Source1:	nagios-plugins-config-20150412.tar.xz
 # Source1-md5:	2f0f29735345c158d11c2009be3e1478

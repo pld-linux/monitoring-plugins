@@ -8,7 +8,6 @@
 # Conditional build:
 %bcond_without	ldap		# build without ldap
 
-%include	/usr/lib/rpm/macros.perl
 Summary:	Network Monitoring Plugins for Nagios and compatible
 Summary(pl.UTF-8):	Wtyczki do monitorowania hostów/usług/sieci dla Nagiosa
 Name:		monitoring-plugins

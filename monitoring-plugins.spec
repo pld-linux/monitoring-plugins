@@ -11,12 +11,12 @@
 Summary:	Network Monitoring Plugins for Nagios and compatible
 Summary(pl.UTF-8):	Wtyczki do monitorowania hostów/usług/sieci dla Nagiosa
 Name:		monitoring-plugins
-Version:	2.2
-Release:	3
+Version:	2.3
+Release:	1
 License:	GPL v3+
 Group:		Networking
 Source0:	https://www.monitoring-plugins.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	549e243ba1fb5c5b3be3a86961de40a7
+# Source0-md5:	b373cb010bb1136aa5692a7e9c0c8ec1
 # https://git.pld-linux.org/projects/nagios-config
 Source1:	nagios-plugins-config-20150412.tar.xz
 # Source1-md5:	2f0f29735345c158d11c2009be3e1478
@@ -27,13 +27,13 @@ Patch4:		nagios-plugins-noroot.patch
 Patch5:		nagios-plugins-check_ping-socket-filter-warning.patch
 Patch7:		nagios-plugins-pgsql.patch
 Patch9:		nagios-plugins-check_log_paths.patch
-Patch21:	nagios-plugins-check_hpjd-no-paper-out.patch
 Patch23:	nagios-plugins-check_disk_smb-zero-cap.patch
 Patch24:	nagios-plugins-paths.patch
 Patch27:	nagios-plugins-ping.patch
 URL:		https://www.monitoring-plugins.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	curl-devel
 BuildRequires:	file
 BuildRequires:	gettext-tools >= 0.15
 BuildRequires:	libdbi-devel
@@ -314,20 +314,17 @@ Nagios plugin to check LDAP servers.
 Wtyczka Nagiosa do sprawdzania serwerów LDAP.
 
 %package -n monitoring-plugin-check_load
-Summary:	Nagios plugin to check uptime using procps
-Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania uptime'u przy użyciu procps
+Summary:	Nagios plugin to check load
+Summary(pl.UTF-8):	Wtyczka Nagiosa do sprawdzania obciążenia
 Group:		Networking
 Requires:	nagios-common
-Requires:	procps
-Provides:	nagios-plugins-procps = %{version}-%{release}
 Obsoletes:	nagios-plugin-check_load
-Obsoletes:	nagios-plugins-procps
 
 %description -n monitoring-plugin-check_load
-Nagios plugin to check uptime using procps.
+Nagios plugin to check load..
 
 %description -n monitoring-plugin-check_load -l pl.UTF-8
-Wtyczka Nagiosa do sprawdzania uptime'u przy użyciu procps.
+Wtyczka Nagiosa do sprawdzania obciążenia.
 
 %package -n monitoring-plugin-check_mailq
 Summary:	Nagios plugin to check the number of messages in the local mail queue
@@ -535,7 +532,6 @@ mv nagios-plugins-config-*/* .
 %patch4 -p1
 %patch5 -p1
 %patch7 -p1
-%patch21 -p1
 %patch23 -p1
 %patch24 -p1
 %patch27 -p1
@@ -657,6 +653,7 @@ rm -rf $RPM_BUILD_ROOT
 # plugins
 %attr(755,root,root) %{plugindir}/check_apt
 %attr(755,root,root) %{plugindir}/check_cluster
+%attr(755,root,root) %{plugindir}/check_curl
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_disk.cfg
 %attr(755,root,root) %{plugindir}/check_disk
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_dummy.cfg
@@ -705,7 +702,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{plugindir}/check_ssmtp
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_udp.cfg
 %attr(755,root,root) %{plugindir}/check_udp
-#%attr(755,root,root) %{plugindir}/check_uptime
+%attr(755,root,root) %{plugindir}/check_uptime
 
 # these plugins need suid bit to operate
 %attr(640,root,nagios) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/check_dhcp.cfg

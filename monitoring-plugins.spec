@@ -136,9 +136,7 @@ Group:		Networking
 Requires:	nagios-common
 # for utils.pm
 Requires:	%{name}-libs = %{version}-%{release}
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description perl
 This package contains Nagios plugins written in Perl.
@@ -154,9 +152,7 @@ Requires:	nagios-common
 # for utils.pm
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	samba-client
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description samba
 Perl Check SMB Disk plugin for Nagios.
@@ -238,9 +234,7 @@ Group:		Networking
 Requires:	nagios-common
 # for utils.pm
 Requires:	%{name}-libs = %{version}-%{release}
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n monitoring-plugin-check_file_age
 Nagios plugin to check local file age and size.
@@ -332,9 +326,7 @@ Group:		Networking
 Requires:	nagios-common
 # for utils.pm
 Requires:	%{name}-libs = %{version}-%{release}
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 Obsoletes:	nagios-plugin-check_mailq
 
 %description -n monitoring-plugin-check_mailq
@@ -445,9 +437,7 @@ Requires:	lm_sensors
 Provides:	nagios-plugins-sensors = %{version}-%{release}
 Obsoletes:	nagios-plugin-check_sensors
 Obsoletes:	nagios-plugins-sensors
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n monitoring-plugin-check_sensors
 This plugin checks hardware status using the lm_sensors package.

@@ -1,26 +1,28 @@
 https://github.com/monitoring-plugins/monitoring-plugins/pull/1413
 
---- ./plugins-scripts/check_breeze.pl~	2005-03-15 00:05:04.000000000 +0200
-+++ ./plugins-scripts/check_breeze.pl	2005-03-23 20:16:43.123595875 +0200
-@@ -15,6 +15,7 @@
- $ENV{'PATH'}='';
+diff -urNp -x '*.orig' monitoring-plugins-2.3.org/plugins-scripts/check_breeze.pl monitoring-plugins-2.3/plugins-scripts/check_breeze.pl
+--- monitoring-plugins-2.3.org/plugins-scripts/check_breeze.pl	2020-12-09 22:38:01.000000000 +0100
++++ monitoring-plugins-2.3/plugins-scripts/check_breeze.pl	2021-10-05 22:41:00.938298593 +0200
+@@ -16,6 +16,7 @@ sub print_usage ();
+ $ENV{'PATH'}='@TRUSTED_PATH@';
  $ENV{'BASH_ENV'}=''; 
  $ENV{'ENV'}='';
 +$ENV{'CDPATH'}='';
  
  Getopt::Long::Configure('bundling');
  GetOptions
---- ./plugins-scripts/check_wave.pl~	2005-03-23 20:20:48.076385198 +0200
-+++ ./plugins-scripts/check_wave.pl	2005-03-23 20:21:02.774789652 +0200
-@@ -19,6 +19,7 @@
- $ENV{'PATH'}='';
+diff -urNp -x '*.orig' monitoring-plugins-2.3.org/plugins-scripts/check_wave.pl monitoring-plugins-2.3/plugins-scripts/check_wave.pl
+--- monitoring-plugins-2.3.org/plugins-scripts/check_wave.pl	2020-12-09 22:38:01.000000000 +0100
++++ monitoring-plugins-2.3/plugins-scripts/check_wave.pl	2021-10-05 22:41:00.938298593 +0200
+@@ -19,6 +19,7 @@ sub print_usage ();
+ $ENV{'PATH'}='@TRUSTED_PATH@';
  $ENV{'BASH_ENV'}='';
  $ENV{'ENV'}='';
 +$ENV{'CDPATH'}='';
  
  Getopt::Long::Configure('bundling');
  GetOptions
-@@ -50,34 +51,34 @@
+@@ -50,34 +51,34 @@ my $critical = $1 if ($opt_c =~ /([0-9]+
  ($opt_w) || ($opt_w = shift) || ($opt_w = 60);
  my $warning = $1 if ($opt_w =~ /([0-9]+)/);
  

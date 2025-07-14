@@ -517,12 +517,12 @@ Wtyczki przekazane do projektu Nagios. Część z nich działa, część nie.
 %prep
 %setup -q -a1
 mv nagios-plugins-config-*/* .
-%patch0 -p1
-%patch4 -p1
-%patch5 -p1
-%patch7 -p1
-%patch23 -p1
-%patch24 -p1
+%patch -P0 -p1
+%patch -P4 -p1
+%patch -P5 -p1
+%patch -P7 -p1
+%patch -P23 -p1
+%patch -P24 -p1
 
 # remove libtool m4 macro copies, breaks when system libtool is older
 %{__rm} gl/m4/libtool.m4 gl/m4/lt*.m4
